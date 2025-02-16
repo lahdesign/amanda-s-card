@@ -1,217 +1,120 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   background-color: #b1e3fa;
   background-image: url("images/RainbowStripe.png");
   background-size: cover;
-  cursor: url('svg/beeCursor.svg'), auto;
-height: 924 px;
-width: 1899 px;
-  
+  cursor: url('images/beeCursor.png'), auto;
+  margin: 0; /* Remove default margin */
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
 }
 
+.page-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* Twelve columns */
+  grid-template-rows: repeat(8, 1fr); /* Eight rows */
+  height: 100vh;
+  width: 100vw; 
+}
 
-
- h1 {
+h1 {
   color: #6F518F;
   font-family: modak;
   font-size: 80px;
   -webkit-text-stroke: black 0.1px;
-
-  /*position: absolute;
-  top: 300px;
-   left: 300px;*/
+  grid-column: span 12; /* Span across all columns */
+  text-align: left; /* Align text to the left */
 }
 
 h2 {
   color: #ff95a9;
   font-family: chicle;
   font-size: 25px;
-  -webkit-text-stroke:black 0.1px;
-  
- /* position: absolute;*
-   top: 560px;
-left: 300px; */
-
-} 
-
-
-.page-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto;
-  height: 100vh;
-  grid-template-areas:
-    "l l . . . m m t t t t . "
-    ". n n n n n . . . r r r "
-    ". . . . . . b b b b . . ";
+  -webkit-text-stroke: black 0.1px;
+  grid-column: span 12; /* Span across all columns */
+  text-align: left; /* Align text to the left */
 }
 
-.leftCloud {
-  /* position: absolute;
-  top: 0px;
- left: 0px; */
-  grid-area: l;
+/* blank cloud */
+.top-left-cloud {
+  grid-column: 1 / 4; /* First three columns */
+  grid-row: 1 / 4; /* First three rows */
+  width: 100%; /* Ensure it takes full width */
 }
 
-.bottomCloud {
-  /*position: absolute;
-  right: 300px;
-  bottom: 0px;*/
-
-  grid-area: b;
-
-  .cls-1 {
-    fill: #a3d17b;
-  }
-
-  .cls-2, .cls-3 {
-    fill: none;
-  }
-
-  .cls-4 {
-    fill: #fffffa;
-    stroke: #231f20;
-  }
-
-  .cls-4, .cls-3 {
-    stroke-miterlimit: 10;
-    stroke-width: 3px;
-  }
-
-  .cls-3 {
-    stroke: #010101;
-  }
-
-  .cls-5 {
-    clip-path: url(#clippath);
-  }
+/* social media clouds */
+.linkedin-cloud {
+  grid-column: 8 / 13; /* Last four columns */
+  grid-row: 5 / 8; /* Last two rows */
+  margin-bottom: 10%;
 }
 
-
-.rightCloud {
-  /* position: absolute;
-  top: 350px;
-  right: 0px; */
-  grid-area: r;
-
-  .cls-1, .cls-2 {
-    fill: none;
-  }
-
-  .cls-3 {
-    fill: #44c4da;
-    stroke-linejoin: round;
-  }
-
-  .cls-3, .cls-2 {
-    stroke: #231f20;
-    stroke-width: 3px;
-  }
-
-  .cls-2 {
-    stroke-miterlimit: 10;
-  }
-
-  .cls-4 {
-    fill: #fffef9;
-  }
-
- .cls-5 {
-    clip-path: url(#clippath);
-  }
+.instagram-cloud {
+  grid-column: 8 / 13; /* Last four columns */
+  grid-row: 3 / 4; /* Fifth and sixth rows */
 }
 
-.topCloud {
-  /* position: absolute;
-  top: 0px;
-  right: 100px; */
-
-  grid-area: t;
+.email-cloud {
+  grid-column: 2 / 11; /* Second to eleventh columns */
+  grid-row: 7 / 9; /* Last two rows */
 }
 
 .monogram-container {
-  /* position: absolute;
-  top: 0px;
-  padding-right: 100px; */
-  grid-area: m;
+  grid-column: 5 / 9; /* Center four columns */
+  grid-row: 1 / 2; /* First row */
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
-.nametext-container{
-  grid-area: n;
+.name-text-container {
+  grid-column: 5 / 9; /* Center four columns */
+  grid-row: 3 / 4; /* Third row */
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Instagram SVG styles /
-#instagram .st2 {
-    fill: #FFFEF9;
-    stroke: #231F20;
-    stroke-width: 3;
-    stroke-miterlimit: 10;
+/* svg color styling */
+.yellow {
+  fill: #fed769;
+}
+.pink {
+  fill: #f594a9;
+}
+.green {
+  fill: #a3d17b;
+}
+.blue {
+  fill: #44c4da;
+}
+.cloud {
+  fill: white;
+}
+.stroke {
+  stroke: #231f20;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3px;
 }
 
-#instagram .st3 {
-    fill: none;
-    stroke: #231F20;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-/ Top Cloud SVG styles /
-#top-cloud .st1 {
-    fill: #FFFFFA;
-    stroke: #231F20;
-    stroke-width: 3;
-    stroke-miterlimit: 10;
-}
-
-/ Left Cloud SVG styles /
-#left-cloud {
-    fill: #FFFEF9;
-    stroke: #231F20;
-    stroke-width: 3;
-    stroke-miterlimit: 10;
-}
-
-/ Monogram SVG styles */
-.monogram-container{
-grid-area: m;
-
-  .cls-1 {
-    fill: #fed769;
-  }
-
-  .cls-2 {
-    fill: none;
-  }
-
-  .cls-2, .cls-3, .cls-4, .cls-5 {
-    stroke: #231f20;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 3px;
-  }
-
-  .cls-3 {
-    fill: #a3d17b;
-  }
-
-  .cls-4 {
-    fill: #f594a9;
-  }
-
-  .cls-5 {
-    fill: #44c4da;
+@media screen and (max-width: 768px) {
+  body {
+    background-color: #b1e3fa;
+    background-image: url("images/RainbowStripe.png");
+    background-size: cover;
   }
   
 }
-
-/* .monogram-container .blue-fill {
-  fill: #44C4DA;
-}
-
-.monogram-container .pink-fill {
-  fill: #F594A9;
-}
-
-.monogram-container .green-fill {
-  fill: #A3D17B;
-} */
